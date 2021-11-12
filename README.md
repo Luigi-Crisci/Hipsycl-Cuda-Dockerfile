@@ -7,7 +7,7 @@ This image includes:
 - Cuda 10.2
 
 ## Usage
-A pre-built image is available [here](https://hub.docker.com/repository/docker/luigicrisci/hipsycl_cuda10.2_llvm11).
+A pre-built image is available [here](https://hub.docker.com/r/luigicrisci/hipsycl_cuda10.2_llvm11).
 
 To pull the image:
 ```bash
