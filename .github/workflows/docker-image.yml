@@ -22,4 +22,4 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag hipsycl_cuda10.2:$(date +%s)
     - name: Push image
-      run: docker push luigicrisci/hipsycl_cuda10.2_llvm11:tagname
+      run: docker image push --all-tags luigicrisci/hipsycl_cuda10.2_llvm11
