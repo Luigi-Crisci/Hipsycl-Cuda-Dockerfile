@@ -28,5 +28,5 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: lcrisci/hipsycl_cuda10.2_llvm11:latest
+          tags: luigicrisci/hipsycl_cuda10.2_llvm11:latest
           file: Dockerfile
