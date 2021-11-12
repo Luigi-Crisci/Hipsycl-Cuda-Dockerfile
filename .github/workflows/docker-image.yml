@@ -9,6 +9,9 @@ on:
 jobs:
   docker:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        versions: ["hipsycl+cuda"]
     steps:
       -
         name: Set up QEMU
@@ -29,4 +32,4 @@ jobs:
         with:
           push: true
           tags: luigicrisci/hipsycl_cuda10.2_llvm11:latest
-          file: Dockerfile
+          file: hipsycl+cuda.Dockerfile
