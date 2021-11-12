@@ -20,6 +20,6 @@ jobs:
       with:
         submodules: recursive
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag hipsycl_cuda10.2:$(date +%s)
+      run: docker build . --file Dockerfile --tag luigicrisci/hipsycl_cuda10.2:latest
     - name: Push image
-      run: docker image push --all-tags luigicrisci/hipsycl_cuda10.2_llvm11
+      run: docker image push luigicrisci/hipsycl_cuda10.2_llvm11:latest
