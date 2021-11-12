@@ -14,5 +14,5 @@ To pull the image:
 docker pull luigicrisci/hipsycl_cuda10.2_llvm11:latest
 ```
 
-##Author
+## Author
 -*Luigi Crisci*
