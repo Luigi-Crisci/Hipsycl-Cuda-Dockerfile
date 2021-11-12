@@ -15,4 +15,4 @@ docker pull luigicrisci/hipsycl_cuda10.2_llvm11:latest
 ```
 
 ## Author
--*Luigi Crisci*
+- *Luigi Crisci*
