@@ -1,0 +1,49 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      
+    - name: Docker Build & Push Action
+  # You may pin to the exact commit or the version.
+  # uses: mr-smithers-excellent/docker-build-push@a7fe6652db5c7274374844e81692992f5a2befb9
+      uses: mr-smithers-excellent/docker-build-push@v5.6
+      with:
+        # Name of the Docker image
+        image: test
+        # Target Docker registry
+        registry: luigicrisci/hipsycl_cuda10.2_llvm11
+        # Location of Dockerfile, if not Dockerfile in root directory
+        # dockerfile: # optional, default is Dockerfile
+        # Directory to run `docker build` from, if not project root
+        # directory: # optional
+        # Docker build arguments passed via --build-arg
+        # buildArgs: # optional
+        # Docker build labels passed via --label
+        # labels: # optional
+        # Docker build target passed via --target
+        # target: # optional
+        # Docker registry username
+        username: ${{ secrets.DOCKERHUB_USERNAME }} 
+        # Docker registry password
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+        # GitHub organization to push image to (if not current)
+        # gitHubOrg: # optional
+        # Adds latest tag to auto-generated GitOps tag
+        # addLatest: # optional, default is false
+        # Suffixes a build timestamp to the branch-based Docker tag
+        # addTimestamp: # optional, default is false
