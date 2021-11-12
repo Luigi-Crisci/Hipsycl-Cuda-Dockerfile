@@ -33,4 +33,5 @@ jobs:
         with:
           push: true
           tags: user/app:latest
+          file: hipsycl+cuda.Dockerfile
       
