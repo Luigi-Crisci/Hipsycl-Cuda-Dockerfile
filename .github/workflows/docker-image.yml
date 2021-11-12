@@ -14,8 +14,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: DockerHub Build And Push
-    # You may pin to the exact commit or the version.
-    # uses: Abhishek-070/Dockerhub-Build-Push@1240d89ce6f82ba5911cfbbd01f4d67229c11f69
-    - uses: Abhishek-070/Dockerhub-Build-Push@v1.0
+      -
+        name: Set up QEMU
+        uses: docker/setup-qemu-action@v1
+      -
+        name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+      -
+        name: Login to DockerHub
+        uses: docker/login-action@v1 
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      -
+        name: Build and push
+        id: docker_build
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          tags: user/app:latest
       
