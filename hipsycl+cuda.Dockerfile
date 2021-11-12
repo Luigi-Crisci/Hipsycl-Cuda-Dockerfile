@@ -78,4 +78,4 @@ RUN apt-get -u update \
 	&& cd ../.. && rm -rf hipSYCL
 
 ENV PATH "$PATH:/usr/local/cuda/bin"
-ENV LD_LIBRARY_PATH "$LD_LIBRARY_PATH:/usr/local/cuda/lib"
+ENV LD_LIBRARY_PATH "$LD_LIBRARY_PATH:/usr/local/cuda/lib64"
