@@ -55,15 +55,15 @@ RUN apt-get -u update \
 	
 	# Install boost
 	RUN echo "Installing Boost..." \
-	&& wget https://boostorg.jfrog.io/artifactory/main/release/1.68.0/source/boost_1_68_0.tar.gz &> /dev/null \
+	&& wget -q https://boostorg.jfrog.io/artifactory/main/release/1.68.0/source/boost_1_68_0.tar.gz  \
 	&& tar -xf boost_1_68_0.tar.gz \
 	&& cd boost_1_68_0 \
 	&& ./bootstrap.sh --with-libraries=all \
-	&& ./b2 -j 64 -q install &> /dev/null \ 
+	&& ./b2 -j 64 -q install \ 
 	&& cd .. && rm -rf boost_1_68_0.tar.gz boost_1_68_0
 
 	# Install Cuda-10.1
-	RUN wget https://developer.nvidia.com/compute/cuda/10.1/Prod/local_installers/cuda_10.1.105_418.39_linux.run \
+	RUN wget -q https://developer.nvidia.com/compute/cuda/10.1/Prod/local_installers/cuda_10.1.105_418.39_linux.run \
 	&& chmod +x cuda_10.1.105_418.39_linux.run \
 	&& ./cuda_10.1.105_418.39_linux.run --toolkit --silent --toolkitpath=/usr/local/cuda-10.1 \
 	&& rm cuda_10.1.105_418.39_linux.run
