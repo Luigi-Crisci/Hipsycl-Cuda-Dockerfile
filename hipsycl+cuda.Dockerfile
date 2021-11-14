@@ -54,11 +54,12 @@ RUN apt-get -u update \
 	python-dev
 	
 	# Install boost
-	RUN wget https://boostorg.jfrog.io/artifactory/main/release/1.68.0/source/boost_1_68_0.tar.gz \
+	RUN echo "Installing Boost..."
+	&& wget https://boostorg.jfrog.io/artifactory/main/release/1.68.0/source/boost_1_68_0.tar.gz &> /dev/null \
 	&& tar -xf boost_1_68_0.tar.gz \
 	&& cd boost_1_68_0 \
 	&& ./bootstrap.sh --with-libraries=all \
-	&& ./b2 -j 64 -q install \ 
+	&& ./b2 -j 64 -q install &> /dev/null \ 
 	&& cd .. && rm -rf boost_1_68_0.tar.gz boost_1_68_0
 
 	# Install Cuda-10.1
