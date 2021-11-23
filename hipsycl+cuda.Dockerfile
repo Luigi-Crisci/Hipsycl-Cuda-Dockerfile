@@ -13,7 +13,6 @@ RUN apt-get -u update \
     && apt-add-repository 'deb https://apt.kitware.com/ubuntu/ bionic main' \
     && apt-get -u update \
     && apt-get -qq upgrade \
-    # Actual ligen deps:
     && apt-get -qq install cmake \
 	ca-certificates \
     build-essential \
